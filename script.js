@@ -16,7 +16,7 @@ function countdown(endDate) {
         milliseconds = distance % 1000;
 
         // Simulate microseconds by generating a random number between 0 and 999
-        const simulatedMicroseconds = Math.floor(Math.random() * 1000);
+        const simulatedMicroseconds = Math.floor(Math.random() * 10000);
         
         document.getElementById('days').innerText = days;
         document.getElementById('hours').innerText = hours;
