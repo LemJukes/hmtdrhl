@@ -14,14 +14,17 @@ function countdown(endDate) {
         minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         seconds = Math.floor((distance % (1000 * 60)) / 1000);
         milliseconds = distance % 1000;
-        microseconds = Math.floor((distance * 1000) % 1000);
 
+        // Simulate microseconds by generating a random number between 0 and 999
+        const simulatedMicroseconds = Math.floor(Math.random() * 1000);
+        
         document.getElementById('days').innerText = days;
         document.getElementById('hours').innerText = hours;
         document.getElementById('minutes').innerText = minutes;
         document.getElementById('seconds').innerText = seconds;
         document.getElementById('milliseconds').innerText = milliseconds;
-        document.getElementById('microseconds').innerText = microseconds;
+        document.getElementById('microseconds').innerText = simulatedMicroseconds;
+
     } else {
         // If the countdown is over, write some text 
         document.getElementById('countdown').innerText = "Countdown finished";
