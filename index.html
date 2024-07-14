@@ -1,16 +1,52 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="1894.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Much Time Does Rob Have?</title>
 </head>
 <body>
-<p class="p1">Test</p>
+    <header>
+        <h1>HOW MUCH TIME DOES ROB HAVE?</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home" onclick="showPage('home')">home</a></li>
+            <li><a href="#pastcountdowns" onclick="showPage('pastcountdowns')">past countdowns</a></li>
+            <li><a href="#about" onclick="showPage('about')">about</a></li>
+            <li><a href="#contact" onclick="showPage('contact')">contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home" class="page">
+            <h2>Home</h2>
+            <div id="countdown">
+                <span id="days"></span> days 
+                <span id="hours"></span> hours 
+                <span id="minutes"></span> minutes 
+                <span id="seconds"></span> seconds 
+                <span id="milliseconds"></span> milliseconds
+            </div>
+        </section>
+
+        <section id="pastcountdowns" class="page" style="display:none;">
+            <h2>Past Countdowns</h2>
+            <p>There aren't any yet, this is the first one.</p>
+        </section>
+
+        <section id="about" class="page" style="display:none;">
+            <h2>About</h2>
+            <p>Welcome to an expression of morbid humor that came about as a result of getting fired from a job I really loved.</p>
+        </section>
+
+        <section id="contact" class="page" style="display:none;">
+            <h2>Contact</h2>
+            <p>JukeLTD@proton.me</p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
