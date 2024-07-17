@@ -58,16 +58,29 @@ document.addEventListener('DOMContentLoaded', function() {
     const revealAnswer = document.getElementById('reveal-answer');
 
     revealBtn.addEventListener('click', function() {
-        revealAnswer.style.display = 'block';
-        revealAnswer.style.opacity = 0;
-        let opacity = 0;
-        const fadeIn = setInterval(function() {
-            if (opacity < 1) {
-                opacity += 0.05;
-                revealAnswer.style.opacity = opacity;
-            } else {
-                clearInterval(fadeIn);
-            }
-        }, 50);
+        if (revealAnswer.style.display === 'none' || revealAnswer.style.display === '') {
+            revealAnswer.style.display = 'block';
+            let opacity = 0;
+            const fadeIn = setInterval(function() {
+                if (opacity < 1) {
+                    opacity += 0.05;
+                    revealAnswer.style.opacity = opacity;
+                } else {
+                    clearInterval(fadeIn);
+                }
+            }, 50);
+        } else {
+            let opacity = 1;
+            const fadeOut = setInterval(function() {
+                if (opacity > 0) {
+                    opacity -= 0.05;
+                    revealAnswer.style.opacity = opacity;
+                } else {
+                    clearInterval(fadeOut);
+                    revealAnswer.style.display = 'none';
+                }
+            }, 50);
+        }
     });
 });
+
