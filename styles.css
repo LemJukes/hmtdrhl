@@ -1,5 +1,3 @@
-/* styles.css */
-
 /* General Styles */
 body {
     background-color: #000;
@@ -60,19 +58,21 @@ nav ul li a:hover {
     font-size: 2em;
     margin-top: 20px;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
 }
 
-#countdown span {
-    margin: 0 10px;
+#countdown div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
 }
 
 /* 3D Block Effect for Countdown Numbers */
 #countdown span {
     position: relative;
     display: inline-block;
-    padding: 5px;
     font-size: 2em;
     font-weight: bold;
     text-shadow: 1px 1px 0 #333, 2px 2px 0 #333, 3px 3px 0 #333, 4px 4px 0 #333, 5px 5px 0 #333;
