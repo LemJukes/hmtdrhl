@@ -95,6 +95,31 @@ nav ul li a:hover {
     transform: translate(4px, 4px);
 }
 
+/* Reveal Section Styles */
+#reveal-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#reveal-btn {
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#reveal-btn:hover {
+    background-color: #666;
+}
+
+#reveal-answer {
+    display: none;
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
 /* Contact Info */
 p {
     margin: 20px 0;
