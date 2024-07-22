@@ -10,12 +10,12 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    text-align: center;
 }
 
 header, nav, main {
     width: 100%;
     max-width: 800px;
-    text-align: center;
     margin: 20px 0;
 }
 
@@ -118,9 +118,44 @@ nav ul li a:hover {
     display: none;
     margin-top: 10px;
     font-size: 1.2em;
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
 /* Contact Info */
 p {
     margin: 20px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        font-size: 0.8em;
+    }
+
+    #countdown {
+        font-size: 1.5em;
+    }
+
+    #countdown span {
+        font-size: 1.5em;
+    }
+
+    header, nav, main {
+        width: 90%;
+        margin: 10px 0;
+    }
+
+    #reveal-btn {
+        font-size: 0.9em;
+        padding: 8px 16px;
+    }
+
+    #reveal-answer {
+        font-size: 1em;
+    }
+
+    h1, h2 {
+        font-size: 1.5em;
+    }
 }
