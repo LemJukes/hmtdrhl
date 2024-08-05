@@ -43,7 +43,7 @@ function showPage(pageId) {
 }
 
 // Set the date we're counting down to
-const countDownDate = new Date("Jul 31, 2024 18:00:00").getTime(); // example date
+const countDownDate = new Date("Aug 12, 2024 08:00:00").getTime(); // countdown end date
 
 // Update the countdown every 1 millisecond
 setInterval(() => countdown(countDownDate), 1);
