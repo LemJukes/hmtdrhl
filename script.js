@@ -1,12 +1,9 @@
-//script.js
-
-// Example countdown function
-function countdown(endDate) {
-    let days, hours, minutes, seconds, milliseconds;
-    
-    // Calculate the remaining time
+// Main countdown function
+function countdown(endDate, displayIds) {
     const now = new Date().getTime();
     const distance = endDate - now;
+
+    let days = 0, hours = 0, minutes = 0, seconds = 0, milliseconds = 0, microseconds = 0;
 
     if (distance >= 0) {
         days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -14,73 +11,59 @@ function countdown(endDate) {
         minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         seconds = Math.floor((distance % (1000 * 60)) / 1000);
         milliseconds = distance % 1000;
+        microseconds = Math.floor(Math.random() * 10000); // Simulating microseconds
 
-        // Simulate microseconds by generating a random number between 0 and 999
-        const simulatedMicroseconds = Math.floor(Math.random() * 10000);
-        
-        document.getElementById('days').innerText = days;
-        document.getElementById('hours').innerText = hours;
-        document.getElementById('minutes').innerText = minutes;
-        document.getElementById('seconds').innerText = seconds;
-        document.getElementById('milliseconds').innerText = milliseconds;
-        document.getElementById('microseconds').innerText = simulatedMicroseconds;
-
+        document.getElementById(displayIds.days).innerText = days;
+        document.getElementById(displayIds.hours).innerText = hours;
+        document.getElementById(displayIds.minutes).innerText = minutes;
+        document.getElementById(displayIds.seconds).innerText = seconds;
+        document.getElementById(displayIds.milliseconds)?.innerText = milliseconds;
+        document.getElementById(displayIds.microseconds)?.innerText = microseconds;
     } else {
-        // If the countdown is over, write some text 
-        document.getElementById('countdown').innerText = "Countdown finished";
+        document.getElementById(displayIds.container).innerText = "Countdown finished";
     }
 }
 
+// Show specific page section
 function showPage(pageId) {
     const pages = document.querySelectorAll('.page');
     pages.forEach(page => {
-        if (page.id === pageId) {
-            page.style.display = 'block';
-        } else {
-            page.style.display = 'none';
-        }
+        page.style.display = page.id === pageId ? 'block' : 'none';
     });
 }
 
-// Set the date we're counting down to
-const countDownDate = new Date("Aug 12, 2024 08:00:00").getTime(); // countdown end date
+// Initial countdown date
+const countDownDate = new Date("Aug 12, 2024 08:00:00").getTime(); // Primary countdown
+const secretCountdownDate = new Date("Aug 31, 2025 23:59:59").getTime(); // Secret countdown
 
-// Update the countdown every 1 millisecond
-setInterval(() => countdown(countDownDate), 1);
+// Update the countdown every 1 millisecond for main and every second for secret countdown
+setInterval(() => countdown(countDownDate, {
+    container: 'countdown',
+    days: 'days',
+    hours: 'hours',
+    minutes: 'minutes',
+    seconds: 'seconds',
+    milliseconds: 'milliseconds',
+    microseconds: 'microseconds'
+}), 1);
 
-// Show the home page by default
+setInterval(() => countdown(secretCountdownDate, {
+    container: 'secret-countdown',
+    days: 'secret-days',
+    hours: 'secret-hours',
+    minutes: 'secret-minutes',
+    seconds: 'secret-seconds'
+}), 1000);
+
+// Default page load
 document.addEventListener("DOMContentLoaded", () => {
     showPage('home');
-});
-
-document.addEventListener('DOMContentLoaded', function() {
+    // Reveal button functionality
     const revealBtn = document.getElementById('reveal-btn');
     const revealAnswer = document.getElementById('reveal-answer');
 
     revealBtn.addEventListener('click', function() {
-        if (revealAnswer.style.display === 'none' || revealAnswer.style.display === '') {
-            revealAnswer.style.display = 'block';
-            let opacity = 0;
-            const fadeIn = setInterval(function() {
-                if (opacity < 1) {
-                    opacity += 0.05;
-                    revealAnswer.style.opacity = opacity;
-                } else {
-                    clearInterval(fadeIn);
-                }
-            }, 50);
-        } else {
-            let opacity = 1;
-            const fadeOut = setInterval(function() {
-                if (opacity > 0) {
-                    opacity -= 0.05;
-                    revealAnswer.style.opacity = opacity;
-                } else {
-                    clearInterval(fadeOut);
-                    revealAnswer.style.display = 'none';
-                }
-            }, 50);
-        }
+        revealAnswer.style.display = revealAnswer.style.display === 'none' || revealAnswer.style.display === '' ? 'block' : 'none';
+        revealAnswer.style.opacity = revealAnswer.style.display === 'block' ? 1 : 0;
     });
 });
-
