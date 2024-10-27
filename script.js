@@ -1,7 +1,10 @@
-// New countdown function for "secret countdown" on August 31, 2025
+//script.js
+
+// Example countdown function
 function countdown(endDate) {
     let days, hours, minutes, seconds, milliseconds;
-
+    
+    // Calculate the remaining time
     const now = new Date().getTime();
     const distance = endDate - now;
 
@@ -12,8 +15,9 @@ function countdown(endDate) {
         seconds = Math.floor((distance % (1000 * 60)) / 1000);
         milliseconds = distance % 1000;
 
+        // Simulate microseconds by generating a random number between 0 and 999
         const simulatedMicroseconds = Math.floor(Math.random() * 10000);
-
+        
         document.getElementById('days').innerText = days;
         document.getElementById('hours').innerText = hours;
         document.getElementById('minutes').innerText = minutes;
@@ -22,6 +26,7 @@ function countdown(endDate) {
         document.getElementById('microseconds').innerText = simulatedMicroseconds;
 
     } else {
+        // If the countdown is over, write some text 
         document.getElementById('countdown').innerText = "Countdown finished";
     }
 }
@@ -37,8 +42,8 @@ function showPage(pageId) {
     });
 }
 
-// Set the new countdown date
-const countDownDate = new Date("Aug 31, 2025 00:00:00").getTime(); // August 31, 2025, midnight
+// Set the date we're counting down to
+const countDownDate = new Date("Aug 12, 2024 08:00:00").getTime(); // countdown end date
 
 // Update the countdown every 1 millisecond
 setInterval(() => countdown(countDownDate), 1);
