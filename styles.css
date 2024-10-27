@@ -24,47 +24,7 @@ h1, h2 {
     letter-spacing: 2px;
 }
 
-/* Countdown Styles */
-#countdown, #secret-countdown {
-    font-size: 1.5em;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#countdown div, #secret-countdown div {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin: 5px 0;
-}
-
-/* Reveal Section */
-#reveal-section {
-    margin-top: 20px;
-    text-align: center;
-}
-
-#reveal-btn {
-    background-color: #444;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-#reveal-btn:hover {
-    background-color: #666;
-}
-
-#reveal-answer {
-    display: none;
-    margin-top: 10px;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
+/* Navigation Styles */
 nav ul {
     list-style: none;
     padding: 0;
@@ -85,9 +45,143 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
+/* Section Styles */
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+#countdown {
+    font-size: 2em;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#countdown div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+/* 3D Block Effect for Countdown Numbers */
+#countdown span {
+    position: relative;
+    display: inline-block;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #333, 2px 2px 0 #333, 3px 3px 0 #333, 4px 4px 0 #333, 5px 5px 0 #333;
+}
+
+#countdown span:before, #countdown span:after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #333;
+    z-index: -1;
+}
+
+#countdown span:before {
+    transform: translate(2px, 2px);
+}
+
+#countdown span:after {
+    transform: translate(4px, 4px);
+}
+
+/* Reveal Section Styles */
+#reveal-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#reveal-btn {
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#reveal-btn:hover {
+    background-color: #666;
+}
+
+#reveal-answer {
+    display: none;
+    margin-top: 10px;
+    font-size: 1.2em;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* Contact Info */
+p {
+    margin: 20px 0;
+}
+
 /* Responsive Design */
 @media (max-width: 600px) {
-    #countdown, #secret-countdown {
+    body {
+        font-size: 0.8em;
+    }
+
+    #countdown {
+        font-size: 1.5em;
+    }
+
+    #countdown span {
+        font-size: 1.5em;
+    }
+
+    header, nav, main {
+        width: 90%;
+        margin: 10px 0;
+    }
+
+    #reveal-btn {
+        font-size: 0.9em;
+        padding: 8px 16px;
+    }
+
+    #reveal-answer {
         font-size: 1em;
     }
+
+    h1, h2 {
+        font-size: 1.5em;
+    }
+}
+
+/* General link styles */
+a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Contact Info */
+#contact a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#contact a:hover {
+    text-decoration: underline;
+}
+
+p {
+    margin: 20px 0;
 }
